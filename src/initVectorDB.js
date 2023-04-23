@@ -6,6 +6,7 @@ import env from "dotenv";
 env.config();
 
 export default async function initVectorDB() {
+  // const docs = await loadEpubDocuments("docs");
   const docs = await loadEpubDocuments("example.epub");
 
   const res = await WeaviateStore.fromDocuments(

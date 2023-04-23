@@ -13,7 +13,7 @@ Create a cluster with `Authentication` set to `No` on Weaviate. Grab the cluster
 
 The `WEAVIATE_INDEX` will be the name of the index in the Vector database that queries will be performed on. (name it anything like `Test_ABC`)
 
-Once all the keys are set up, begin initializing and storing the data in the database by running `yarn prestart`. This will take the provided `example.epub` file and do the following:
+Once all the keys are set up, begin initializing and storing the data in the database by running `yarn initVDB`. This will take the provided `example.epub` file and do the following:
 
 - split it into separate chunked documents
 - create embeddings of the data with OpenAI's embedding model

@@ -1,7 +1,7 @@
 import env from "dotenv";
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { BufferMemory } from "langchain/memory";
-
+import { OpenAI } from "langchain/llms/openai";
 import { ChainTool } from "langchain/tools";
 import { initializeAgentExecutorWithOptions } from "langchain/agents";
 import { VectorDBQAChain } from "langchain/chains";
@@ -14,13 +14,16 @@ const accuChat = new ChatOpenAI({
   temperature: 0,
 });
 
-// const model = new OpenAI({ temperature: 0 });
+const model = new OpenAI({ temperature: 0 });
 
 const vectorDbStore = await InitializeExisitingVectorDB(
   process.env.WEAVIATE_INDEX
 );
 
-const vectorChain = VectorDBQAChain.fromLLM(accuChat, vectorDbStore);
+const vectorChain = VectorDBQAChain.fromLLM(
+  /* accuChat */ model,
+  vectorDbStore
+);
 
 const qaTool = new ChainTool({
   name: "search-current-book",
