@@ -26,7 +26,7 @@ Run `yarn start` to start the conversational AI with the embedded data and test 
 Occasionally the program may fail because getting chat based LLM's to perform repetitive tasks is still a bit expiremental, so be patient and try again :).
 
 ### Technologies
-[LangChain](https://js.langchain.com/docs/) - The Node version of LangChain.
-[Weaviate](https://weaviate.io/) - The vector database used.
-[Open AI](https://platform.openai.com/docs/api-reference) - Used for both the Embedding model and the agent model
+- [LangChain](https://js.langchain.com/docs/) - The Node version of LangChain.
+- [Weaviate](https://weaviate.io/) - The vector database used.
+- [Open AI](https://platform.openai.com/docs/api-reference) - Used for both the Embedding model and the agent model
 
