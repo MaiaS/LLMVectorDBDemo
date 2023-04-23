@@ -1,0 +1,21 @@
+{
+  "name": "langchain",
+  "version": "0.0.1",
+  "description": "test of nodejs langchain functionality",
+  "main": "index.js",
+  "author": "maia S",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "prestart": "node initVectorDB.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "epub2": "^3.0.1",
+    "graphql": "^16.6.0",
+    "html-to-text": "^9.0.5",
+    "langchain": "^0.0.59",
+    "weaviate-ts-client": "^1.0.0"
+  }
+}
