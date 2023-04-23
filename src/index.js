@@ -1,12 +1,7 @@
 import env from "dotenv";
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { BufferMemory } from "langchain/memory";
-import {
-  ChatPromptTemplate,
-  HumanMessagePromptTemplate,
-  MessagesPlaceholder,
-  SystemMessagePromptTemplate,
-} from "langchain/prompts";
+
 import { ChainTool } from "langchain/tools";
 import { initializeAgentExecutorWithOptions } from "langchain/agents";
 import { VectorDBQAChain } from "langchain/chains";
@@ -20,14 +15,6 @@ const accuChat = new ChatOpenAI({
 });
 
 // const model = new OpenAI({ temperature: 0 });
-
-const chatPrompt = ChatPromptTemplate.fromPromptMessages([
-  SystemMessagePromptTemplate.fromTemplate(
-    "The following is a really dumb bot named borf."
-  ),
-  new MessagesPlaceholder("history"),
-  HumanMessagePromptTemplate.fromTemplate("{input}"),
-]);
 
 const vectorDbStore = await InitializeExisitingVectorDB(
   process.env.WEAVIATE_INDEX
@@ -47,7 +34,6 @@ const tools = [qaTool];
 const agentChat = await initializeAgentExecutorWithOptions(tools, accuChat, {
   agentType: "chat-conversational-react-description",
   verbose: true,
-  chatPrompt: chatPrompt,
   memory: new BufferMemory({ returnMessages: true, memoryKey: "chat_history" }),
 });
 
